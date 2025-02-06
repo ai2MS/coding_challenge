@@ -23,5 +23,5 @@ Explanation: There are 16 valid tuples:
 ### Constraints:
 
 1 <= nums.length <= 1000
-1 <= nums[i] <= 104
+1 <= nums[i] <= 10^4
 All elements in nums are distinct.
