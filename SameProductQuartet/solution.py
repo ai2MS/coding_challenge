@@ -3,14 +3,30 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
-        Add your code below
         """
+        temp_dict={}
+        tuple_count = 0
+        sorted_nums = sorted(nums)
+        len_nums = len(nums)
+        for a_n in range(len_nums):
+            for b_n in range(a_n+1, len_nums):
+                a = sorted_nums[a_n]
+                b = sorted_nums[b_n]
+                if a == b: 
+                    continue
+                else:
+                    p = a * b
+                    if p in temp_dict:
+                        tuple_count += 8 * (int(len(temp_dict[p])/2))
+                        temp_dict[p].update([a,b])
+                    else:
+                        temp_dict[p] = set([a,b])
+
+        return tuple_count
     
     
     def tupleSameProduct_ref(self, nums):
         """
-        This is the "brutal force way of validating if the result is correct"
-        It can also be used to evaluate the speed improvement of the actual solution.
         :type nums: List[int]
         :rtype: int
         """
@@ -60,7 +76,7 @@ if __name__ == "__main__":
     import time
 
     # setting up the test run
-    no_of_rounds = 20
+    no_of_rounds = 40
     inputs = []
     for i in range(no_of_rounds):
         inputs.append(set([random.randint(1,10000) for _ in range(random.randint(1,1000))]))
