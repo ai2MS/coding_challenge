@@ -63,7 +63,7 @@ if __name__ == "__main__":
     no_of_rounds = 20
     inputs = []
     for i in range(no_of_rounds):
-        inputs.append(set([random.randint(1,10000) for _ in range(random.randint(1,1000))]))
+        inputs.append(list(set([random.randint(1,10000) for _ in range(random.randint(1,1000))])))
 
     spq = Solution()
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     for i in range(no_of_rounds):
-        solutions.append(spq.tupleSameProduct_ref(inputs[i]))
+        solutions_ref.append(spq.tupleSameProduct_ref(inputs[i]))
     end_time = time.time()
     print(f"Reference Solution took: {end_time - start_time} seconds.")    
 

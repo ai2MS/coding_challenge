@@ -6,12 +6,12 @@ class Solution(object):
         """
         temp_dict={}
         tuple_count = 0
-        sorted_nums = sorted(nums)
+        list_nums = list(nums)
         len_nums = len(nums)
         for a_n in range(len_nums):
             for b_n in range(a_n+1, len_nums):
-                a = sorted_nums[a_n]
-                b = sorted_nums[b_n]
+                a = list_nums[a_n]
+                b = list_nums[b_n]
                 if a == b: 
                     continue
                 else:
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     no_of_rounds = 40
     inputs = []
     for i in range(no_of_rounds):
-        inputs.append(set([random.randint(1,10000) for _ in range(random.randint(1,1000))]))
+        inputs.append(list(set([random.randint(1,10000) for _ in range(random.randint(1,1000))])))
 
     spq = Solution()
 
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     for i in range(no_of_rounds):
-        solutions.append(spq.tupleSameProduct_ref(inputs[i]))
+        solutions_ref.append(spq.tupleSameProduct_ref(inputs[i]))
     end_time = time.time()
     print(f"Reference Solution took: {end_time - start_time} seconds.")    
 
